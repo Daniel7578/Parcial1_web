@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Form, Button, Row, Col, Container, Stack, Card} from "react-bootstrap";
-import { useNavigate, navigate } from 'react-router-dom';
+import { useNavigate, navigate, useLocation } from 'react-router-dom';
 import './cards.css'
 import Detalle from '../detalle/detalle';
 import Encabezado from "../encabezado/header";
 
 export default function Cards() {
+    const location = useLocation();
+    const userRole = location.state && location.state.userRole ? location.state.userRole : null;
     const [datos, setDatos] = useState([
         {
             datoId: 1,
