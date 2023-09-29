@@ -3,11 +3,13 @@ import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import logo from './logo.svg';
 import Login from './components/login/login';
 import Cards from './components/objetonegocio/cards';
+import Encabezado from './components/encabezado/header';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
+      <Encabezado/>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login/>} />
