@@ -61,7 +61,7 @@ export default function Login() {
       return (
         <Container>
           <Row className="border solid grey" style={{margin: "40px"}}>
-          <Col className="col-md-6">
+          <Col className="col-md-6" style={{padding: "0px"}}>
           <img className="img img-fluid mx-auto" src="https://www.nationalgeographic.com.es/medio/2023/06/01/the-bottle-tree-portal_8aba9f36_230601093631_800x800.jpg" alt="img.png" border="0"  />
           </Col>
           <Col className="col-md-6 d-flex align-items-center  justify-content-center">
