@@ -1,4 +1,21 @@
 {
-    "Email": "password",
-    "Correo": "Email"
+    "Correo": "Email",
+    "Nombre":"Name",
+    "Tipo":"Type",
+    "Region":"Region",
+    "Notas":"Notes",
+    "Cultivado":"Grown at a height of",
+    "Contacto":"Contact us",
+    "Login":"Login",
+    "Username":"Username",
+    "EnterUser":"Enter your username",
+    "Contra":"Password",
+    "Log In":"Log In",
+    "Cancel":"Cancel",
+    "msnm":"masl",
+    "Empty": "Empty fields",
+    "Incorrect": "Incorrect username or password",
+    "Place": "Enter your username",
+    "palceholder2": "Enter your password"
+    
 }

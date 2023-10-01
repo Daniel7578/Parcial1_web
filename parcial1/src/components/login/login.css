@@ -1,5 +1,5 @@
 .contendor-formulario {
-    text-align: left
+    text-align: left;
 }
 
 .formulario_texto {
@@ -28,20 +28,21 @@
 
 .ingresoSesion {
     margin-bottom: 1rem;
-    margin-left: 5rem;
-    margin-right: 14rem;
     width: 253px;
     height: 53px;
-    left: 456px;
-    top: 771px;
+    background-color:"#8FA98F";
+    border: "0px";
+    border-radius: 0;
+    color: "black";
+    font-weight: 'bold';
+    padding: '10px 20px';
+    margin: '0 5rem';
 }
 
 .abortar {
     margin-bottom: 1rem;
     width: 253px;
     height: 53px;
-    left: 456px;
-    top: 771px;
     background-color: red;
     border: "0px";
     border-radius: 0;

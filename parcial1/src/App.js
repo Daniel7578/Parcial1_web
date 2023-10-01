@@ -1,22 +1,21 @@
 import React from 'react';
-import {Routes, Route, BrowserRouter} from 'react-router-dom';
-import logo from './logo.svg';
+import {Routes, Route} from 'react-router-dom';
 import Login from './components/login/login';
-import Cards from './components/objetonegocio/cards';
+import Tabla from './components/objetonegocio/cards';
 import Encabezado from './components/encabezado/header';
 import './App.css';
+import FooterInfo from './components/footer/footer';
 
 function App() {
   return (
     <div className="App">
       <Encabezado/>
-      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login/>} />
           <Route path="/login" element={<Login/>} />
-          <Route path="/Home" element={<Cards/>} />
+          <Route path="/Home" element={<Tabla/>} />
         </Routes>
-      </BrowserRouter>
+      <FooterInfo/>
     </div>
   );
 }

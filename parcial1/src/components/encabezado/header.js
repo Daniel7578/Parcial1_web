@@ -1,12 +1,26 @@
 import './header.css'
+import React from 'react';
+import styled from 'styled-components';
+import { Container } from 'react-bootstrap';
 
 function Encabezado() {
+    const Titulo = styled.h2`
+        font-family: 'Indie Flower', cursive;
+        font-size: 36px;
+        font-weight: bolder;
+        text-align: left;
+        line-height: 53px;
+        font-style: normal;
+    `;
     return (
-        <div className="header">
+        <Container>
+            <Titulo>
+                El aroma mágico
+            </Titulo>
             <hr />
-            <img className="imagenEncabezado" src="https://marketplace.canva.com/EAEiQaq0NWg/1/0/1600w/canva-orange-ebb-and-flow-abstract-linkedin-banner-5YDmHwJk-Yc.jpg" alt="cafe" />
+            <img className="headerimg" src="https://cdn.discordapp.com/attachments/1106582725000966205/1111741198986649661/image_1.png" alt="cafe" />
             <hr />
-        </div>
+        </Container>
     );
 }
 

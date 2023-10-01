@@ -1,4 +1,12 @@
-.imagenEncabezado {
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+.headerimg {
     height: 323px;
-    width: 89.1vw;
+    width: 100%;
+}
+.header-title h2 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 36px;
+    font-weight: bolder;
+    text-align: left;
+    line-height: 53px;
 }

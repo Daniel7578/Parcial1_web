@@ -1,16 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
+import { IntlProvider } from "react-intl";
 import "bootstrap/dist/css/bootstrap.min.css";
 import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
+let userLanguage = navigator.language || navigator.userLanguage;
+let mensajes;
+
+if (userLanguage.includes("es") || userLanguage.includes("ES")){
+  mensajes = require('./locales/es.json');
+} else if (userLanguage.includes("en") || userLanguage.includes("EN")) {
+  mensajes = require('./locales/en.json');
+}
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <IntlProvider locale={userLanguage} messages={mensajes}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </IntlProvider>
   </React.StrictMode>
 );
 

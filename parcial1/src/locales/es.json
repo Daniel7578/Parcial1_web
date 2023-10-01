@@ -1,3 +1,20 @@
 {
-    "Access": "Acceder"
+    "Access": "Ingresar",
+    "Nombre":"Nombre", 
+    "Tipo":"Tipo", 
+    "Region":"Región", 
+    "Notas":"Notas", 
+    "Cultivado":"Cultivado a una altura de", 
+    "Contacto":"Contactanos", 
+    "Login":"Inicio de sesión", 
+    "Username":"Nombre de usuario", 
+    "EnterUser":"Ingresa tu nombre de usuario", 
+    "Contra":"Contraseña",
+    "Log In":"Iniciar sesión",
+    "Cancel": "Cancelar",
+    "msnm": "msnm",
+    "Empty": "Campos vacios",
+    "Incorrect": "Usuario o contraseña incorrectos",
+    "Place": "Ingresa tu nombre de usuario",
+    "palceholder2": "Ingresa tu contraseña"
 }

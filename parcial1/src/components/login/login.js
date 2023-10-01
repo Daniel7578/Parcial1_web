@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Row, Col, Container } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
+import { FormattedMessage } from "react-intl";
 import './login.css';
 
 function Login() {
@@ -9,32 +10,32 @@ function Login() {
     const [fallo, setFallo] = useState(false);
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const usuarios = [
-      {
-        nombre: "admin",
-        password: "admin"
-      },
-      {
-        nombre: "usuario",
-        password: "usuario"
-      }
-    ] 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (nombreUsuario.trim() === '' || password.trim() === '') {
             setFallo(true);
-            setError("Campos vacios");
+            setError("Empty");
             return
         } else {
-          const usuario = usuarios.find(usuario => usuario.nombre === nombreUsuario && usuario.password === password);
-          if (!usuario) {
-            setFallo(true);
-            setError("Usuario o contraseña incorrectos");
-            return
+          let config = {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({"login": nombreUsuario, "password": password})
+          }
+          const data = (await fetch('http://localhost:3001/login', config));
+          const dataJson = await data.json();
+          console.log(dataJson.status);
+          if (dataJson.status === "success") {
+            navigate("/Home")
+            
           }
           else{
-            navigate("/Home")
+            setFallo(true);
+            setError("Incorrect");
+            return
+            
           }
 
           
@@ -49,15 +50,19 @@ function Login() {
     }
 
     return (
-
+      <Container>
         <Row>
             <Col lg="2"></Col>
             <Col>
-                <div className="contendor-formulario">
-                    <p style={{fontWeight: 'bold'}}>Inicio de sesión</p>
+                <Container className="contendor-formulario">
+                <p style={{fontWeight: 'bold'}}>
+                    <FormattedMessage 
+                    id="Login"
+                    values={{strong : (chunks) => <strong>{chunks}</strong>}} />
+                </p>
                     <Form className="formulario">
                         <Form.Group className="formulario_texto">
-                            <Form.Label>Nombre de usuario</Form.Label>
+                            <Form.Label><FormattedMessage id = 'Username'/></Form.Label>
                             <Form.Control
                                 type="text"
                                 placeholder="Nombre de usuario o Username"
@@ -66,7 +71,7 @@ function Login() {
                             />
                         </Form.Group>
                         <Form.Group className="formulario_texto">
-                            <Form.Label>Contraseña</Form.Label>
+                            <Form.Label><FormattedMessage id = 'Contra'/></Form.Label>
                             <Form.Control
                                 type="password"
                                 placeholder="Contraseña o Password"
@@ -75,18 +80,21 @@ function Login() {
                             />
                         </Form.Group>
                         <br />
-                        <Button className="ingresoSesion" type="submit" onClick={handleSubmit} style={{ backgroundColor:"#8FA98F", border: "0px", borderRadius: 0, color: "black", fontWeight: 'bold'}}>
-                            Ingresar
+                        <Row style={{justifyContent: 'center', display: 'flex', alignItems: 'center', paddingBottom: '3rem'}}>
+                        <Button className="ingresoSesion" type="submit" onClick={handleSubmit} style={{ backgroundColor:"#8FA98F", border: "0px", borderRadius: 0, color: "black", fontWeight: 'bold', padding: '10px 20px' , margin: '0 5rem'} }>
+                            <FormattedMessage id = 'Access'/>
                         </Button>
-                        <Button className="abortar" type="reset" onClick={handleAbort}>
-                            Cancelar
+                        <Button className="abortar" type="reset" style={{backgroundColor:"#E75D5D", border: "0px", borderRadius: 0, color: "black", fontWeight: 'bold', padding: '10px 20px' , margin: '0 5rem'}} onClick={handleAbort}>
+                            <FormattedMessage id = 'Cancel'/>
                         </Button>
-                        {fallo && <p className="error">{error}</p>}
+                        </Row>
+                        {fallo && <p className="error"><FormattedMessage id={error}/></p>}
                     </Form>
-                </div>
+                </Container>
             </Col>
             <Col lg="2"></Col>
         </Row>
+      </Container>
     )
 }
 
